@@ -4,10 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Probando Git</title>
+    <title>Iniciando Vue</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script defer src="js/app.js"></script>
   </head>
   <body>
-    <h1>Hola mundo!</h1>
+    <div id="app">
+      <h1>{{ title }}</h1>
+      <h2>{{ name }}</h2>
+      <div v-html="textHtml"></div>
+      <input v-model="input" type="text" />
+      <button @click="accept">Aceptar</button>
+      <p>{{ input }}</p>
+    </div>
   </body>
 </html>
