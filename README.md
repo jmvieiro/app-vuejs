@@ -16,6 +16,8 @@ Para la realización del proyecto, se instalaron las siguientes dependencias:
 
 #### - Desafío 1: Contador con Vue
 
-
-Invocado al iniciar la aplicación, para registro de nuevos usuarios (Register) y autenticación del usuario (Login).
-Se incluye screen de configuración para ver los datos del usuario logueado y permite cerrar la sesión.
+Aplicación que  que suma o resta un contador dependiendo el botón presionado.
+Extras:
+- El contador no puede ser menos que 0.
+- Usa una propiedad computada para mostrar el contador a la potencia.
+- Segundo contador que lleve los clicks en los botones.
