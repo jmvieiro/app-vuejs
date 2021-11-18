@@ -78,19 +78,57 @@
         </nav>
       </div>
       <div id="layoutSidenav_content">
-        <main>
+        <main id="app">
           <div class="container-fluid px-4">
-            <h1 class="mt-4">Inicio</h1>
+            <h1 class="mt-4">{{ titulo }}</h1>
             <ol class="breadcrumb mb-4">
-              <li class="breadcrumb-item active">Inicio</li>
+              <li class="breadcrumb-item active">{{ subtitulo }}</li>
             </ol>
-            <div class="row">
-              <div class="col-xl-3 col-md-6">
-                <div class="card bg-primary text-white mb-4">
-                  <div class="card-body">
-                    <a class="text-white stretched-link" href="desafio1.html"
-                      >Contador</a
-                    >
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-5">
+                  <div class="card shadow-lg border-0 rounded-lg mt-3">
+                    <div class="card-header">
+                      <h3 class="text-center font-weight-light my-4">
+                        {{ tituloCaja }}
+                      </h3>
+                    </div>
+                    <div class="card-body text-center">
+                      <div class="form-floating mb-2">
+                        <h2>{{ contador }}</h2>
+                      </div>
+                      <div
+                        class="
+                          d-flex
+                          align-items-center
+                          justify-content-center
+                          mt-4
+                          mb-0
+                        "
+                      >
+                        <button
+                          @click="restar"
+                          class="btn btn-primary btn-lg me-2"
+                        >
+                          -
+                        </button>
+                        <button @click="sumar" class="btn btn-primary btn-lg">
+                          +
+                        </button>
+                      </div>
+                    </div>
+                    <div class="card-footer text-center py-3">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div v-html="tituloClicks"></div>
+                          <h2>{{ cantidadClicks }}</h2>
+                        </div>
+                        <div class="col-lg-6">
+                          <div v-html="tituloPotencia"></div>
+                          <h2 v-text="potencia"></h2>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -113,5 +151,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/desafio1.js"></script>
   </body>
 </html>
