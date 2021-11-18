@@ -1,4 +1,4 @@
-# JMV Store proyecto académico sobre Vue js
+# Proyecto académico sobre Vue js
 
 ## Comenzando con Vue 
 
