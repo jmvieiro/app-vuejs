@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>CoderHouse - Vue js - Desafío 2</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
+      rel="stylesheet"
+    />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="sb-nav-fixed">
+    <div id="app">
+      <navbar></navbar>
+      <div id="layoutSidenav">
+        <menu-left></menu-left>
+        <div id="layoutSidenav_content">
+          <main id="app">
+            <div class="container-fluid px-4">
+              <h1 class="mt-4">{{ titulo }}</h1>
+              <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">{{ subtitulo }}</li>
+              </ol>
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-lg-5">
+                    <div class="card shadow-lg border-0 rounded-lg mt-3">
+                      <div class="card-header">
+                        <h3 class="text-center font-weight-light my-4">
+                          {{ tituloCaja }}
+                        </h3>
+                      </div>
+                      <div class="card-body text-center">
+                        <div
+                          class="
+                            d-flex
+                            align-items-center
+                            justify-content-center
+                            mt-2
+                            mb-2
+                          "
+                        >
+                          <button
+                            @click="mostrarTexto"
+                            class="btn btn-primary btn-lg"
+                          >
+                            <span v-if="!show">Mostrar texto</span>
+                            <span v-else>Ocultar texto</span>
+                          </button>
+                        </div>
+                        <div class="form-floating mb-2">
+                          <h5 v-if="show">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry. Lorem Ipsum has been the
+                            industry's standard dummy text ever since the 1500s,
+                            when an unknown printer took a galley of type and
+                            scrambled it to make a type specimen book.
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-lg-3">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                      <div class="card-header">
+                        <h3 class="text-center font-weight-light my-4">
+                          Agregar tarea
+                        </h3>
+                      </div>
+                      <div class="card-body">
+                        <div class="form-floating mb-3">
+                          <input
+                            ref="titulo"
+                            v-model="inputTitulo"
+                            class="form-control"
+                            id="inputTitulo"
+                            type="text"
+                            placeholder="Título"
+                          />
+                          <label for="inputTitulo">Título</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                          <input
+                            v-model="inputDescripcion"
+                            class="form-control"
+                            id="inputDescripcion"
+                            type="text"
+                            placeholder="Descripción"
+                          />
+                          <label for="inputDescripcion">Descripción</label>
+                        </div>
+                        <div class="form-check mb-3">
+                          <input
+                            class="form-check-input"
+                            id="inputPrioritaria"
+                            type="checkbox"
+                            value=""
+                          />
+                          <label class="form-check-label" for="inputPrioritaria"
+                            >Prioritaria</label
+                          >
+                        </div>
+                      </div>
+                      <div class="card-footer text-center py-3">
+                        <button
+                          @click="guardarTarea"
+                          class="btn btn-primary btn-lg"
+                        >
+                          Confirmar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-9">
+                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                      <div class="card-header text-center">
+                        <h3 class="font-weight-light my-4">
+                          Listado de tareas utlizando {{ tituloCaja2 }} y
+                          componentes
+                        </h3>
+                        <p class="small" v-text="cantidadTareas"></p>
+                        <div v-if="alerta" class="container">
+                          <div class="alert alert-success" role="alert">
+                            {{ textoAlerta }}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body text-center">
+                        <div class="form-floating mb-2">
+                          <div class="mt-2">
+                            <table width="100%" class="table">
+                              <thead v-if="tareas.length !== 0">
+                                <tr>
+                                  <th v-for="(item, i) in titulos" :key="i" scope="col">{{item}}</td>
+                                </tr>
+                              </thead>
+                              <tbody v-if="tareas.length === 0">
+                                <tr>
+                                  <td colspan="5">
+                                      <h5 class="p-4">¡No tenés tareas pendientes!</h5>
+                                  </td>
+                                </tr>
+                              </tbody>
+                              <tbody v-else>
+                                  <tr is="row"
+                                  v-for="(tarea, i) in tareas"
+                                  :key="i"
+                                  :index="i"
+                                  :tarea="tarea"
+                                  :class="i % 2 === 0 ? 'table-success' : 'table-danger'"
+                                  ></tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+          <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+              <div
+                class="d-flex align-items-center justify-content-between small"
+              >
+                <div class="text-muted">Copyright &copy; JMV 2021</div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script defer src="js/desafio02.js"></script>
+  </body>
+</html>

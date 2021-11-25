@@ -9,7 +9,7 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>CoderHouse - Vue js - Desafio 1</title>
+    <title>CoderHouse - Vue js - Desafío 1</title>
     <link
       href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
       rel="stylesheet"
@@ -19,7 +19,6 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   </head>
   <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -51,9 +50,37 @@
                 class="nav-link collapsed"
                 href="#"
                 data-bs-toggle="collapse"
-                data-bs-target="#collapseLayouts"
+                data-bs-target="#collapseClases"
                 aria-expanded="false"
-                aria-controls="collapseLayouts"
+                aria-controls="collapseClases"
+              >
+                <div class="sb-nav-link-icon">
+                  <i class="fas fa-columns"></i>
+                </div>
+                Clases
+                <div class="sb-sidenav-collapse-arrow">
+                  <i class="fas fa-angle-down"></i>
+                </div>
+              </a>
+              <div
+                class="collapse"
+                id="collapseClases"
+                aria-labelledby="headingOne"
+                data-bs-parent="#sidenavAccordion"
+              >
+                <nav class="sb-sidenav-menu-nested nav">
+                  <a class="nav-link" href="desafio02.html"
+                    >Clase 3: Directivas condicionales</a
+                  >
+                </nav>
+              </div>
+              <a
+                class="nav-link collapsed"
+                href="#"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseDesafios"
+                aria-expanded="false"
+                aria-controls="collapseDesafios"
               >
                 <div class="sb-nav-link-icon">
                   <i class="fas fa-columns"></i>
@@ -65,12 +92,12 @@
               </a>
               <div
                 class="collapse"
-                id="collapseLayouts"
+                id="collapseDesafios"
                 aria-labelledby="headingOne"
                 data-bs-parent="#sidenavAccordion"
               >
                 <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="desafio1.html">Contador</a>
+                  <a class="nav-link" href="desafio01.html">Contador</a>
                 </nav>
               </div>
             </div>
@@ -132,7 +159,9 @@
                             class="card bg-danger text-white mb-4 mt-4"
                             :class="error ? 'd-block' : 'd-none'"
                           >
-                            <div class="card-body">El contador no puede ser menor a 0.</div>
+                            <div class="card-body">
+                              El contador no puede ser menor a 0.
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -160,6 +189,6 @@
     ></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="js/desafio1.js"></script>
+    <script defer src="js/desafio01.js"></script>
   </body>
 </html>
