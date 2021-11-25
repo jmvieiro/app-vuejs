@@ -97,8 +97,8 @@ Vue.component("row", {
 var app = new Vue({
   el: "#app",
   data: {
-    titulo: "Directivas condicionales, estructurales y de atributo",
-    subtitulo: "Clase 3",
+    titulo: "Directivas condicionales, estructurales y de atributo | Componentes",
+    subtitulo: "Desafío 2",
     tituloCaja: "v-if | v-else | v-else-if",
     tituloCaja2: "v-for",
     show: false,

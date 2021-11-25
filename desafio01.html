@@ -21,146 +21,68 @@
     ></script>
   </head>
   <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-      <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3" href="index.html">Iniciando Vue</a>
-      <!-- Sidebar Toggle-->
-      <button
-        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
-        id="sidebarToggle"
-        href="#!"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-    </nav>
-    <div id="layoutSidenav">
-      <div id="layoutSidenav_nav">
-        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-          <div class="sb-sidenav-menu">
-            <div class="nav">
-              <div class="sb-sidenav-menu-heading">Core</div>
-              <a class="nav-link" href="index.html">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-tachometer-alt"></i>
-                </div>
-                Inicio
-              </a>
-              <div class="sb-sidenav-menu-heading">Interface</div>
-              <a
-                class="nav-link collapsed"
-                href="#"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseClases"
-                aria-expanded="false"
-                aria-controls="collapseClases"
-              >
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-columns"></i>
-                </div>
-                Clases
-                <div class="sb-sidenav-collapse-arrow">
-                  <i class="fas fa-angle-down"></i>
-                </div>
-              </a>
-              <div
-                class="collapse"
-                id="collapseClases"
-                aria-labelledby="headingOne"
-                data-bs-parent="#sidenavAccordion"
-              >
-                <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="desafio02.html"
-                    >Clase 3: Directivas condicionales</a
-                  >
-                </nav>
-              </div>
-              <a
-                class="nav-link collapsed"
-                href="#"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseDesafios"
-                aria-expanded="false"
-                aria-controls="collapseDesafios"
-              >
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-columns"></i>
-                </div>
-                Desafíos
-                <div class="sb-sidenav-collapse-arrow">
-                  <i class="fas fa-angle-down"></i>
-                </div>
-              </a>
-              <div
-                class="collapse"
-                id="collapseDesafios"
-                aria-labelledby="headingOne"
-                data-bs-parent="#sidenavAccordion"
-              >
-                <nav class="sb-sidenav-menu-nested nav">
-                  <a class="nav-link" href="desafio01.html">Contador</a>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-      <div id="layoutSidenav_content">
-        <main id="app">
-          <div class="container-fluid px-4">
-            <h1 class="mt-4">{{ titulo }}</h1>
-            <ol class="breadcrumb mb-4">
-              <li class="breadcrumb-item active">{{ subtitulo }}</li>
-            </ol>
-            <div class="container">
-              <div class="row justify-content-center">
-                <div class="col-lg-5">
-                  <div class="card shadow-lg border-0 rounded-lg mt-3">
-                    <div class="card-header">
-                      <h3 class="text-center font-weight-light my-4">
-                        {{ tituloCaja }}
-                      </h3>
-                    </div>
-                    <div class="card-body text-center">
-                      <div class="form-floating mb-2">
-                        <h2>{{ contador }}</h2>
+    <div id="app">
+      <navbar></navbar>
+      <div id="layoutSidenav">
+        <menu-left></menu-left>
+        <div id="layoutSidenav_content">
+          <main>
+            <div class="container-fluid px-4">
+              <h1 class="mt-4">{{ titulo }}</h1>
+              <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">{{ subtitulo }}</li>
+              </ol>
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-lg-5">
+                    <div class="card shadow-lg border-0 rounded-lg mt-3">
+                      <div class="card-header">
+                        <h3 class="text-center font-weight-light my-4">
+                          {{ tituloCaja }}
+                        </h3>
                       </div>
-                      <div
-                        class="
-                          d-flex
-                          align-items-center
-                          justify-content-center
-                          mt-4
-                          mb-0
-                        "
-                      >
-                        <button
-                          @click="restar"
-                          class="btn btn-primary btn-lg me-2"
+                      <div class="card-body text-center">
+                        <div class="form-floating mb-2">
+                          <h2>{{ contador }}</h2>
+                        </div>
+                        <div
+                          class="
+                            d-flex
+                            align-items-center
+                            justify-content-center
+                            mt-4
+                            mb-0
+                          "
                         >
-                          -
-                        </button>
-                        <button @click="sumar" class="btn btn-primary btn-lg">
-                          +
-                        </button>
-                      </div>
-                    </div>
-                    <div class="card-footer text-center py-3">
-                      <div class="row">
-                        <div class="col-lg-6">
-                          <div v-html="tituloClicks"></div>
-                          <h2>{{ cantidadClicks }}</h2>
-                        </div>
-                        <div class="col-lg-6">
-                          <div v-html="tituloPotencia"></div>
-                          <h2 v-text="potencia"></h2>
-                        </div>
-                        <div>
-                          <div
-                            class="card bg-danger text-white mb-4 mt-4"
-                            :class="error ? 'd-block' : 'd-none'"
+                          <button
+                            @click="restar"
+                            class="btn btn-primary btn-lg me-2"
                           >
-                            <div class="card-body">
-                              El contador no puede ser menor a 0.
+                            -
+                          </button>
+                          <button @click="sumar" class="btn btn-primary btn-lg">
+                            +
+                          </button>
+                        </div>
+                      </div>
+                      <div class="card-footer text-center py-3">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div v-html="tituloClicks"></div>
+                            <h2>{{ cantidadClicks }}</h2>
+                          </div>
+                          <div class="col-lg-6">
+                            <div v-html="tituloPotencia"></div>
+                            <h2 v-text="potencia"></h2>
+                          </div>
+                          <div>
+                            <div
+                              class="card bg-danger text-white mb-4 mt-4"
+                              :class="error ? 'd-block' : 'd-none'"
+                            >
+                              <div class="card-body">
+                                El contador no puede ser menor a 0.
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -170,17 +92,17 @@
                 </div>
               </div>
             </div>
-          </div>
-        </main>
-        <footer class="py-4 bg-light mt-auto">
-          <div class="container-fluid px-4">
-            <div
-              class="d-flex align-items-center justify-content-between small"
-            >
-              <div class="text-muted">Copyright &copy; JMV 2021</div>
+          </main>
+          <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+              <div
+                class="d-flex align-items-center justify-content-between small"
+              >
+                <div class="text-muted">Copyright &copy; JMV 2021</div>
+              </div>
             </div>
-          </div>
-        </footer>
+          </footer>
+        </div>
       </div>
     </div>
     <script
